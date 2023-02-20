@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "qWjflobJ6CyKhcQXQw74GOiR1ZM3PzCFv228nSx1ouVQpvps4z453V4rP+WwDEZcqL2cDS0FsGkUReIlxewNEA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mr_g8\\RealworldBackendFastendpoints\\RealworldBackendFastendpoints.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mr_g8\\.nuget\\packages\\fastendpoints\\5.7.2\\fastendpoints.5.7.2.nupkg.sha512",
+    "C:\\Users\\mr_g8\\.nuget\\packages\\fastendpoints.attributes\\5.7.2\\fastendpoints.attributes.5.7.2.nupkg.sha512",
+    "C:\\Users\\mr_g8\\.nuget\\packages\\fastendpoints.security\\5.7.2\\fastendpoints.security.5.7.2.nupkg.sha512",
+    "C:\\Users\\mr_g8\\.nuget\\packages\\fluentvalidation\\11.5.0\\fluentvalidation.11.5.0.nupkg.sha512",
+    "C:\\Users\\mr_g8\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.2\\microsoft.aspnetcore.authentication.jwtbearer.7.0.2.nupkg.sha512",
+    "C:\\Users\\mr_g8\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\mr_g8\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.15.1\\microsoft.identitymodel.jsonwebtokens.6.15.1.nupkg.sha512",
+    "C:\\Users\\mr_g8\\.nuget\\packages\\microsoft.identitymodel.logging\\6.15.1\\microsoft.identitymodel.logging.6.15.1.nupkg.sha512",
+    "C:\\Users\\mr_g8\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.15.1\\microsoft.identitymodel.protocols.6.15.1.nupkg.sha512",
+    "C:\\Users\\mr_g8\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.15.1\\microsoft.identitymodel.protocols.openidconnect.6.15.1.nupkg.sha512",
+    "C:\\Users\\mr_g8\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.15.1\\microsoft.identitymodel.tokens.6.15.1.nupkg.sha512",
+    "C:\\Users\\mr_g8\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.15.1\\system.identitymodel.tokens.jwt.6.15.1.nupkg.sha512",
+    "C:\\Users\\mr_g8\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

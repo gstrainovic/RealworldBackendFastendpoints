@@ -3,6 +3,8 @@
 # dependencies
 /node_modules
 /dist
+/bin
+/obj/Debug
 
 # IDEs and editors
 /.idea
