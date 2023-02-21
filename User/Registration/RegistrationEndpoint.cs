@@ -25,6 +25,8 @@ public class RegistrationEndpoint : Endpoint<RegisterRequest>
           // u["UserID"] = "001"; //indexer based claim setting
         });
 
+    await user.SaveAsync();
+
     await SendAsync(new UserResponse
     {
       user = new UserResponse.User

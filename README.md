@@ -17,7 +17,7 @@ For more information on how to this works with other frontends/backends, head ov
 
 > C# aspnet web minimal api  
 > FastEndpoints Framework  
-> Todo -> MongoDB.Entiies
+> Todo -> MongoDB.Entilies
 
 # Getting started
 

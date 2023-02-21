@@ -8,7 +8,9 @@
 //   }
 // }
 
-public class UserResponse
+using MongoDB.Entities;
+
+public class UserResponse : Entity
 {
   public User user { get; set; }
 
