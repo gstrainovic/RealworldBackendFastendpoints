@@ -1,6 +1,4 @@
-﻿namespace Registration;
-
-public static class Data
+﻿public static class RegisterData
 {
     internal static Task<bool> EmailAddressIsTaken(string email)
     {
@@ -16,10 +14,5 @@ public static class Data
             .Find<Dom.User>()
             .Match(a => a.UserName.ToLower() == loweCaseUserName)
             .ExecuteAnyAsync();
-    }
-
-    internal static Task CreateNewUser(Dom.User user)
-    {
-        return user.SaveAsync();
     }
 }

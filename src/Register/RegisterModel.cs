@@ -1,10 +1,3 @@
-// {
-//   "user":{
-//     "email": "jake@jake.jake",
-//     "password": "jakejake"
-//   }
-// }
-
 public class RegisterRequest
 {
   public User user { get; set; } 

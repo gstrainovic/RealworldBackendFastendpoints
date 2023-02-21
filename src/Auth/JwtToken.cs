@@ -1,7 +1,12 @@
-﻿namespace MiniDevTo.Auth;
+﻿namespace JWT;
 
-public class JwtToken
+public function CreateToken()
 {
-    public string Value { get; set; }
-    public DateTime ExpiryDate { get; set; }
+  return JWTBearer.CreateToken(
+      signingKey: Config["JwtSigningKey"],
+      expireAt: DateTime.UtcNow.AddDays(1),
+      priviledges: u =>
+      {
+        u.Roles.Add("User");
+      });
 }

@@ -14,7 +14,6 @@ using MiniDevTo.Migrations;
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddFastEndpoints();
 builder.Services.AddJWTBearerAuth(builder.Configuration["JwtSigningKey"]);
-// builder.Services.AddAuthenticationJWTBearer(builder.Configuration["JwtSigningKey"]);
 
 builder.Services.AddSwaggerDoc();
 
