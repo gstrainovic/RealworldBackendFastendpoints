@@ -1,6 +1,4 @@
-﻿namespace Admin.Login;
-
-public class Endpoint : Endpoint<RegisterRequest, UserResponse>
+﻿public class LoginEndpoint : Endpoint<RegisterRequest, UserResponse>
 {
     public override void Configure()
     {
@@ -10,23 +8,25 @@ public class Endpoint : Endpoint<RegisterRequest, UserResponse>
 
     public override async Task HandleAsync(RegisterRequest r, CancellationToken c)
     {
-        user = await DB.Find<Dom.User>().ManyAsync(u => u.email == email);
+        var user = await DB.Find<UserEntity>()
+            .Match(a => a.Username.ToLower() == r.User.Username.ToLower())
+            .ExecuteSingleAsync();
 
-        if (user.passwordhash is null)
+        if (user is null)
             ThrowError("No user account by that username!");
 
-        if (!BCrypt.Net.BCrypt.Verify(r.password, passwordhash))
+        if (!BCrypt.Net.BCrypt.Verify(r.User.Password, user.PasswordHash))
             ThrowError("Password is incorrect!");
 
         await SendAsync(new UserResponse
         {
-          user = new UserResponse.User
+          User = new UserResponse.user
           {
-            email = user.email,
-            token = JWT.CreateToken(),
-            username = user.username,
-            bio = user.bio,
-            image = user.image
+            Email = user.Email,
+            Token = JWT.CreateToken(),
+            Username = user.Username,
+            Bio = user.Bio,
+            Image = user.Image
           }
         });
     }

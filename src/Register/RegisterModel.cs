@@ -1,31 +1,29 @@
 public class RegisterRequest
 {
-  public User user { get; set; } 
-  public class User 
+  public user User { get; set; } = new();
+  public class user
   {
-    public string username { get; set; }
-    public string email { get; set; } 
-    public string password { get; set; } 
+    public string Username { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
   }
 }
-
-
 public class RegisterRequestValidator : Validator<RegisterRequest>
 {
   public RegisterRequestValidator()
   {
 
-    When(x => x.user != null, () =>
+    When(x => x.User != null, () =>
     {
 
-      RuleFor(x => x.user.username)
-          .NotEmpty();
+      RuleFor(x => x.User.Username)
+                   .NotEmpty();
 
-      RuleFor(x => x.user.email)
-          .NotEmpty();
+      RuleFor(x => x.User.Email)
+                   .NotEmpty();
 
-      RuleFor(x => x.user.password)
-          .NotEmpty();
+      RuleFor(x => x.User.Password)
+                   .NotEmpty();
     });
 
   }

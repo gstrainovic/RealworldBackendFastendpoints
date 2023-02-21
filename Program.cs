@@ -3,13 +3,6 @@ global using FastEndpoints.Security;
 global using FluentValidation;
 global using MongoDB.Entities;
 using FastEndpoints.Swagger;
-global using FastEndpoints;
-global using FastEndpoints.Security;
-global using FluentValidation;
-global using MiniDevTo.Auth;
-global using MongoDB.Entities;
-using FastEndpoints.Swagger;
-using MiniDevTo.Migrations;
 
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddFastEndpoints();

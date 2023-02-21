@@ -1,10 +1,10 @@
 public class LoginRequest
 {
-  public User user { get; set; } 
-  public class User 
+  public user User { get; set; } = new();
+  public class user 
   {
-    public string email { get; set; } 
-    public string password { get; set; } 
+    public string Email { get; set; }  = string.Empty;
+    public string Password { get; set; } = string.Empty;
   }
 }
 
@@ -13,12 +13,12 @@ public class LoginRequestValidator : Validator<LoginRequest>
   public LoginRequestValidator()
   {
 
-    When(x => x.user != null, () =>
+    When(x => x.User != null, () =>
     {
-      RuleFor(x => x.user.email)
+      RuleFor(x => x.User.Email)
           .NotEmpty();
 
-      RuleFor(x => x.user.password)
+      RuleFor(x => x.User.Password)
           .NotEmpty();
     });
 
