@@ -12,7 +12,7 @@
   {
     return DB
         .Find<UserEntity>()
-        .Match(a => a.Username.ToLower() == loweCaseUserName)
+        .Match(a => a.UserName.ToLower() == loweCaseUserName)
         .ExecuteAnyAsync();
   }
 }

@@ -1,17 +1,6 @@
-﻿// public static CreateToken()
-// {
-//   return JWTBearer.CreateToken(
-//       signingKey: Config["JwtSigningKey"],
-//       expireAt: DateTime.UtcNow.AddDays(1),
-//       priviledges: u =>
-//       {
-//         u.Roles.Add("User");
-//       });
-// }
-
-public static class JWT
+﻿public static class JWT
 {
-    public static string CreateToken()
+    public static string CreateToken(string Email)
     {
     // load Configuration
     var config = new ConfigurationBuilder()
@@ -25,9 +14,8 @@ public static class JWT
     return JWTBearer.CreateToken(
           signingKey: jwtSigningKey,
           expireAt: DateTime.UtcNow.AddDays(1),
-          priviledges: u =>
-          {
-            u.Roles.Add("User");
-          });
+          claims: (Claim.UserEmail, Email)
+        );
+          
   }
 }

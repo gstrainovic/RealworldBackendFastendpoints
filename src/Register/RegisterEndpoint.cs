@@ -1,4 +1,4 @@
-public class RegisterEndpoint : Endpoint<RegisterRequest , UserResponse>
+public class RegisterEndpoint : Endpoint<RegisterRequest, UserResponse>
 {
   public override void Configure()
   {
@@ -12,40 +12,28 @@ public class RegisterEndpoint : Endpoint<RegisterRequest , UserResponse>
     if (emailIsTaken)
       AddError(r => req.User.Email, "Email address is already in use");
 
-    var userNameIsTaken = await RegisterData.UserNameIsTaken(req.User.Username.ToLower());
+    var userNameIsTaken = await RegisterData.UserNameIsTaken(req.User.UserName.ToLower());
     if (userNameIsTaken)
-      AddError(r => req.User.Username, "Username is not available");
+      AddError(r => req.User.UserName, "UserName is not available");
 
     ThrowIfAnyErrors();
 
     var user = new UserEntity
     {
       Email = req.User.Email.ToLower(),
-      Username = req.User.Username.ToLower(),
+      UserName = req.User.UserName.ToLower(),
       PasswordHash = BCrypt.Net.BCrypt.HashPassword(req.User.Password)
     };
 
     await user.SaveAsync();
-
-    // await SendAsync(new UserResponse
-    // {
-    //   user = new UserResponse.user
-    //   {
-    //     email = user.email,
-    //     token = JWT.CreateToken(),
-    //     username = user.username,
-    //     bio = "",
-    //     image = ""
-    //   }
-    // });
 
     await SendAsync(new UserResponse
     {
       User = new UserResponse.user
       {
         Email = user.Email,
-        Token = JWT.CreateToken(),
-        Username = user.Username,
+        Token = JWT.CreateToken(user.Email),
+        UserName = user.UserName,
         Bio = "",
         Image = ""
       }
