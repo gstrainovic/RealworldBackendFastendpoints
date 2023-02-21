@@ -551,19 +551,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/goran/.nuget/packages/": {}
+    "C:\\Users\\mr_g8\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/goran/RealworldBackendFastendpoints/RealworldBackendFastendpoints.csproj",
+      "projectUniqueName": "C:\\Users\\mr_g8\\RealworldBackendFastendpoints\\RealworldBackendFastendpoints.csproj",
       "projectName": "RealworldBackendFastendpoints",
-      "projectPath": "/Users/goran/RealworldBackendFastendpoints/RealworldBackendFastendpoints.csproj",
-      "packagesPath": "/Users/goran/.nuget/packages/",
-      "outputPath": "/Users/goran/RealworldBackendFastendpoints/obj/",
+      "projectPath": "C:\\Users\\mr_g8\\RealworldBackendFastendpoints\\RealworldBackendFastendpoints.csproj",
+      "packagesPath": "C:\\Users\\mr_g8\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mr_g8\\RealworldBackendFastendpoints\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/goran/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\mr_g8\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -619,7 +619,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

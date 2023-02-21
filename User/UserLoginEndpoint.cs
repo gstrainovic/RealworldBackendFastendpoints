@@ -7,6 +7,8 @@ public class UserLoginEndpoint : Endpoint<LoginRequest>
   {
     Post("api/users/login");
     AllowAnonymous();
+    DontThrowIfValidationFails();
+    
   }
 
   public override async Task HandleAsync(LoginRequest req, CancellationToken ct)
