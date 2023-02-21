@@ -10,8 +10,8 @@ public class MyEndpoint : Endpoint<MyRequest>
   {
     var response = new MyResponse()
     {
-      FullName = req.FirstName + " " + req.LastName,
-      IsOver18 = req.Age > 18
+      FullName = req.user.FirstName + " " + req.user.LastName,
+      IsOver18 = req.user.Age > 18
     };
 
     await SendAsync(response);

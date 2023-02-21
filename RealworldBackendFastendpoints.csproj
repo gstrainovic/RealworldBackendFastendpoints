@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="FastEndpoints" Version="5.7.2" />
     <PackageReference Include="FastEndpoints.Security" Version="5.7.2" />
+    <PackageReference Include="FluentValidation" Version="11.5.1" />
   </ItemGroup>
 
 </Project>
