@@ -54,10 +54,6 @@
               "target": "Package",
               "version": "[5.7.2, )"
             },
-            "FluentValidation": {
-              "target": "Package",
-              "version": "[11.5.1, )"
-            },
             "MongoDB.Entities": {
               "target": "Package",
               "version": "[21.0.2, )"

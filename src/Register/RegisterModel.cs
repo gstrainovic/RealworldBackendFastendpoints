@@ -3,7 +3,7 @@ public class RegisterRequest
   public user User { get; set; } = new();
   public class user
   {
-    public string UserName { get; set; } = string.Empty;
+    public string Username { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
     public string? Bio { get; set; }
@@ -18,7 +18,7 @@ public class RegisterRequestValidator : Validator<RegisterRequest>
     When(x => x.User != null, () =>
     {
 
-      RuleFor(x => x.User.UserName)
+      RuleFor(x => x.User.Username)
                    .NotEmpty();
 
       RuleFor(x => x.User.Email)

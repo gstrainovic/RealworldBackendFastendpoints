@@ -127,7 +127,7 @@
           }
         }
       },
-      "FluentValidation/11.5.1": {
+      "FluentValidation/11.5.0": {
         "type": "package",
         "compile": {
           "lib/net7.0/FluentValidation.dll": {
@@ -1714,16 +1714,16 @@
         "lib/net7.0/FastEndpoints.Swagger.xml"
       ]
     },
-    "FluentValidation/11.5.1": {
-      "sha512": "0h1Q5lNOLLyYTWMJmyNoMqhY4CBRvvUWvJP1R4F2CnmmzuWwvB0A8aVmw5+lOuwYnwUwCRrdeMLbc81F38ahNQ==",
+    "FluentValidation/11.5.0": {
+      "sha512": "DExajJh+cguLk1XodH+LVVFuSsCqoEmXOQsxqP5rvVeUD1hIda59cyuL73LHJAYIrFatR8ZZ1H7kfejHN9XFWw==",
       "type": "package",
-      "path": "fluentvalidation/11.5.1",
+      "path": "fluentvalidation/11.5.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
         "fluent-validation-icon.png",
-        "fluentvalidation.11.5.1.nupkg.sha512",
+        "fluentvalidation.11.5.0.nupkg.sha512",
         "fluentvalidation.nuspec",
         "lib/net5.0/FluentValidation.dll",
         "lib/net5.0/FluentValidation.xml",
@@ -5452,7 +5452,6 @@
       "FastEndpoints >= 5.7.2",
       "FastEndpoints.Security >= 5.7.2",
       "FastEndpoints.Swagger >= 5.7.2",
-      "FluentValidation >= 11.5.1",
       "MongoDB.Entities >= 21.0.2"
     ]
   },
@@ -5508,10 +5507,6 @@
           "FastEndpoints.Swagger": {
             "target": "Package",
             "version": "[5.7.2, )"
-          },
-          "FluentValidation": {
-            "target": "Package",
-            "version": "[11.5.1, )"
           },
           "MongoDB.Entities": {
             "target": "Package",

@@ -1,21 +1,27 @@
-﻿public class LoginEndpoint : Endpoint<RegisterRequest, UserResponse>
+﻿using System.Text.Json;
+
+public class LoginEndpoint : Endpoint<LoginRequest, UserResponse>
 {
   public override void Configure()
   {
     Post("api/users/login");
     AllowAnonymous();
+    
   }
 
-  public override async Task HandleAsync(RegisterRequest r, CancellationToken c)
+  public override async Task HandleAsync(LoginRequest r, CancellationToken c)
   {
-    var user = await DB.Find<UserEntity>()
-        .Match(a => a.UserName.ToLower() == r.User.UserName.ToLower())
+
+    Console.WriteLine("Request: " + JsonSerializer.Serialize(r));
+
+    var user = await DB.Find<Ent.User>()
+        .Match(a => a.Email.ToLower() == r.User.email.ToLower())
         .ExecuteSingleAsync();
 
     if (user is null)
       ThrowError("No user account by that username!");
 
-    if (!BCrypt.Net.BCrypt.Verify(r.User.Password, user.PasswordHash))
+    if (!BCrypt.Net.BCrypt.Verify(r.User.password, user.PasswordHash))
       ThrowError("Password is incorrect!");
 
     await SendAsync(new UserResponse
@@ -24,7 +30,7 @@
       {
         Email = user.Email,
         Token = JWT.CreateToken(user.Email),
-        UserName = user.UserName,
+        Username = user.UserName,
         Bio = user.Bio,
         Image = user.Image
       }

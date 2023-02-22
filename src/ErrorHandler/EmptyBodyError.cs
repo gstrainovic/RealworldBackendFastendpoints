@@ -2,16 +2,20 @@ using FluentValidation.Results;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-public class ErrorLogger : IGlobalPreProcessor
+public class EmptyRequest : IGlobalPreProcessor
 {
   public Task PreProcessAsync(object req, HttpContext ctx, List<ValidationFailure> failures, CancellationToken ct)
   {
 
     var json = JsonSerializer.Serialize(req);
-    var json_object = JsonSerializer.Deserialize<JsonElement>(json);
 
-    // check if the json object has an empty value like this: {"user":null}
-    var has_empty_constructor = json_object.TryGetProperty("user", out var user) && user.ValueKind == JsonValueKind.Null;
+    // print the json to the console
+    Console.WriteLine("Request2: " + req);
+
+    // check if the json has a null like this {"User":null}
+    var has_empty_constructor = json.Contains("null");
+
+
 
     // If a request fails any validations, expect a 422 and errors in the following format:
     // {
