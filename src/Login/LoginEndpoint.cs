@@ -13,7 +13,7 @@ public class LoginEndpoint : Endpoint<LoginRequest, UserResponse>
   public override async Task HandleAsync(LoginRequest r, CancellationToken c)
   {
 
-    var user = await DB.Find<Ent.User>()
+    var user = await DB.Find<UserEnt>()
         .Match(a => a.Email.ToLower() == r.User.email.ToLower())
         .ExecuteSingleAsync();
 

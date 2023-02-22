@@ -18,7 +18,7 @@ public class RegisterEndpoint : Endpoint<RegisterRequest, UserResponse>
 
     ThrowIfAnyErrors();
 
-    var user = new Ent.User
+    var user = new UserEnt
     {
       Email = req.User.Email.ToLower(),
       UserName = req.User.Username.ToLower(),

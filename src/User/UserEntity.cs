@@ -1,6 +1,4 @@
-namespace Ent;
-
-public class User : Entity
+public class UserEnt : Entity
 {
   public string Email { get; set; } = string.Empty;
   public string UserName { get; set; } = string.Empty;
