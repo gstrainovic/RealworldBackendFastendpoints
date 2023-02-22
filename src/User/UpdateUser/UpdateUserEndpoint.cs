@@ -1,8 +1,9 @@
-﻿using FastEndpoints;
+﻿using AutoMapper;
+using FastEndpoints;
 
 namespace User;
 
-public class Endpoint : Endpoint<UpdateUserRequest, UserData>
+public class UpdateUserEndpoint : Endpoint<UpdateUserRequest, UserResponse, UpdateUserMapper>
 {
     public override void Configure()
     {
@@ -12,6 +13,6 @@ public class Endpoint : Endpoint<UpdateUserRequest, UserData>
     public override Task HandleAsync(UpdateUserRequest req, CancellationToken ct)
     {
 
-        return SendOkAsync(Response, ct);
+      
     }
 }

@@ -5,7 +5,7 @@ public class GetCurrentUserEntpoint : EndpointWithoutRequest<UserResponse>
   public override void Configure()
   {
     Get("api/user");
-    // AllowAnonymous();
+    DontThrowIfValidationFails();
   }
 
   public override async Task HandleAsync(CancellationToken ct)

@@ -4,6 +4,7 @@ public class RegisterEndpoint : Endpoint<RegisterRequest, UserResponse>
   {
     Post("api/users");
     AllowAnonymous();
+    DontThrowIfValidationFails();
   }
 
   public override async Task HandleAsync(RegisterRequest req, CancellationToken ct)
@@ -33,9 +34,7 @@ public class RegisterEndpoint : Endpoint<RegisterRequest, UserResponse>
       {
         Email = user.Email,
         Token = JWT.CreateToken(user.Email),
-        Username = user.Username,
-        Bio = "",
-        Image = ""
+        Username = user.Username
       }
     });
 

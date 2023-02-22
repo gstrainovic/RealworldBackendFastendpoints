@@ -1,6 +1,6 @@
 public class RegisterRequest
 {
-  public user User { get; set; }
+  public user? User { get; set; }
   public class user
   {
     // required

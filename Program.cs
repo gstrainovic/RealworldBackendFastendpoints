@@ -12,15 +12,15 @@ builder.Services.AddJWTBearerAuth(builder.Configuration["JwtSigningKey"]);
 builder.Services.AddSwaggerDoc();
 
 var app = builder.Build();
-app.UseFastEndpoints();
-// app.UseFastEndpoints(c =>
-// {
-//   c.Endpoints.Configurator = ep =>
-//   {
-//     ep.PreProcessors(FastEndpoints.Order.Before, new EmptyRequest());
-//   };
-// });
-// app.MyExceptionHandler(); 
+// app.UseFastEndpoints();
+app.UseFastEndpoints(c =>
+{
+  c.Endpoints.Configurator = ep =>
+  {
+    ep.PreProcessors(FastEndpoints.Order.Before, new EmptyRequest());
+  };
+});
+app.MyExceptionHandler(); 
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseSwaggerGen();

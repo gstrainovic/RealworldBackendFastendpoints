@@ -11,8 +11,13 @@ public class EmptyRequest : IGlobalPreProcessor
     var json = JsonSerializer.Serialize(req);
     var json_object = JObject.Parse(json);
 
-    // Console.WriteLine("Request from EmptyRequest: " + req);
-    // Console.WriteLine("Json from EmptyRequest " + json);
+    Console.WriteLine("Request from EmptyRequest: " + req);
+    Console.WriteLine("Json from EmptyRequest " + json);
+
+    if (json_object.Properties().Count() == 0)
+    {
+      return Task.CompletedTask;
+    }
 
     // var has_empty_constructor = json_object.Properties().Count() == 0;
 

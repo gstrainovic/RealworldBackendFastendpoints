@@ -36,7 +36,7 @@ public static class ExceptionHandlerExtensions
           if (request_string.Length == 0)
           {
               var new_failure = new List<ValidationFailure>();
-              new_failure.Add(new ValidationFailure("body", "can't be empty"));
+              new_failure.Add(new ValidationFailure("body", "can't be empty - my exception handler"));
               await ctx.Response.SendErrorsAsync(new_failure, 422);
               return;
           }

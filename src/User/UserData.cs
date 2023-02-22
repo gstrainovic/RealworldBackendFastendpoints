@@ -9,24 +9,14 @@ public class UserData
     return user;
   }
 
-  public static async Task<UserEnt> UpdateUser(UserEnt user, UpdateUserRequest req)
+  public static async Task<UserEnt> UpdateUser(UserEnt user)
   {
-    user.Email = req.User.Email;
-    user.Bio = req.User.Bio;
-    user.Image = req.User.Image;
-    user.Username = req.User.Username;
-    user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(req.User.Password);
 
-    await DB.Update<UserEnt>()
+    return await DB.UpdateAndGet<UserEnt>()
       .Match(a => a.Email.ToLower() == user.Email.ToLower())
-      .Modify(a => a.Email, user.Email)
-      .Modify(a => a.Bio, user.Bio)
-      .Modify(a => a.Image, user.Image)
-      .Modify(a => a.Username, user.Username)
-      .Modify(a => a.PasswordHash, user.PasswordHash)
+      .ModifyWith(user)
       .ExecuteAsync();
     
-    return user;
   }
 
 }
