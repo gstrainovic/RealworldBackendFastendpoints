@@ -23,9 +23,5 @@ public class LoginRequestValidator : Validator<LoginRequest>
           .NotEmpty();
     });
 
-    RuleFor(x => x.User)
-        .NotNull();
-
-
   }
 }

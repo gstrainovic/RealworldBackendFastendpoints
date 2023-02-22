@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using FluentValidation.Results;
 
 public class LoginEndpoint : Endpoint<LoginRequest, UserResponse>
 {
@@ -6,13 +7,11 @@ public class LoginEndpoint : Endpoint<LoginRequest, UserResponse>
   {
     Post("api/users/login");
     AllowAnonymous();
-    
+    DontThrowIfValidationFails();
   }
 
   public override async Task HandleAsync(LoginRequest r, CancellationToken c)
   {
-
-    Console.WriteLine("Request: " + JsonSerializer.Serialize(r));
 
     var user = await DB.Find<Ent.User>()
         .Match(a => a.Email.ToLower() == r.User.email.ToLower())
