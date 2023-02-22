@@ -13,14 +13,12 @@ public class LoginEndpoint : Endpoint<LoginRequest, UserResponse>
   public override async Task HandleAsync(LoginRequest r, CancellationToken c)
   {
 
-    var user = await DB.Find<UserEnt>()
-        .Match(a => a.Email.ToLower() == r.User.email.ToLower())
-        .ExecuteSingleAsync();
+    var user = await UserData.GetUser(r.User.Email);
 
     if (user is null)
       ThrowError("No user account by that username!");
 
-    if (!BCrypt.Net.BCrypt.Verify(r.User.password, user.PasswordHash))
+    if (!BCrypt.Net.BCrypt.Verify(r.User.Password, user.PasswordHash))
       ThrowError("Password is incorrect!");
 
     await SendAsync(new UserResponse
@@ -29,7 +27,7 @@ public class LoginEndpoint : Endpoint<LoginRequest, UserResponse>
       {
         Email = user.Email,
         Token = JWT.CreateToken(user.Email),
-        Username = user.UserName,
+        Username = user.Username,
         Bio = user.Bio,
         Image = user.Image
       }

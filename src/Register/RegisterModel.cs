@@ -1,13 +1,16 @@
 public class RegisterRequest
 {
-  public user User { get; set; } = new();
+  public user User { get; set; }
   public class user
   {
-    public string Username { get; set; } = string.Empty;
-    public string Email { get; set; } = string.Empty;
-    public string Password { get; set; } = string.Empty;
-    public string? Bio { get; set; }
-    public string? Image { get; set; }
+    // required
+    public string? Username { get; set; }
+
+    // required
+    public string? Email { get; set; }
+
+    // required
+    public string? Password { get; set; }
   }
 }
 public class RegisterRequestValidator : Validator<RegisterRequest>
@@ -19,13 +22,15 @@ public class RegisterRequestValidator : Validator<RegisterRequest>
     {
 
       RuleFor(x => x.User.Username)
-                   .NotEmpty();
+        .NotEmpty();
 
       RuleFor(x => x.User.Email)
-                   .NotEmpty();
+        .EmailAddress()
+        .NotEmpty();
 
       RuleFor(x => x.User.Password)
-                   .NotEmpty();
+        .MinimumLength(12)
+        .NotEmpty();
     });
 
   }

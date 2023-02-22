@@ -10,15 +10,8 @@ public class GetCurrentUserEntpoint : EndpointWithoutRequest<UserResponse>
 
   public override async Task HandleAsync(CancellationToken ct)
   {
-    // get the UserID from Claim
-    var username = User.FindFirstValue(Claim.UserEmail);
-
-    // print username
-    Console.WriteLine(username);
-
-    var user = await DB.Find<UserEnt>()
-        .Match(a => a.Email.ToLower() == username.ToLower())
-        .ExecuteSingleAsync();
+    var UserEmail = User.FindFirstValue(Claim.UserEmail);
+    var user = await UserData.GetUser(UserEmail);
 
     await SendAsync(new UserResponse
     {
@@ -26,7 +19,7 @@ public class GetCurrentUserEntpoint : EndpointWithoutRequest<UserResponse>
       {
         Email = user.Email,
         Token = JWT.CreateToken(user.Email),
-        Username = user.UserName,
+        Username = user.Username,
         Bio = user.Bio,
         Image = user.Image
       }

@@ -8,11 +8,11 @@
         .ExecuteAnyAsync();
   }
 
-  internal static Task<bool> UserNameIsTaken(string loweCaseUserName)
+  internal static Task<bool> UsernameIsTaken(string loweCaseUsername)
   {
     return DB
         .Find<UserEnt>()
-        .Match(a => a.UserName.ToLower() == loweCaseUserName)
+        .Match(a => a.Username.ToLower() == loweCaseUsername)
         .ExecuteAnyAsync();
   }
 }
