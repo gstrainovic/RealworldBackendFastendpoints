@@ -28,13 +28,16 @@ public class Validator : Validator<UpdateUserRequest>
 {
   public Validator()
   {
-    RuleFor(x => x.User.Email)
-      .EmailAddress()
-      .NotEmpty();
+    When(x => x.User != null, () =>
+    {
+      RuleFor(x => x.User.Email)
+        .EmailAddress()
+        .NotEmpty();
 
-    RuleFor(x => x.User.Password)
-      .MinimumLength(12)
-      .NotEmpty();
+      RuleFor(x => x.User.Password)
+        .MinimumLength(12);
+
+    });
 
   }
 }

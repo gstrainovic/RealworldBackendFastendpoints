@@ -1,4 +1,6 @@
-public class UserEnt : Entity
+namespace Ent;
+
+public class User : Entity
 {
   public string? Email { get; set; }
 

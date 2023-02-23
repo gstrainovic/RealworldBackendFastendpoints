@@ -2,18 +2,47 @@
   "version": 3,
   "targets": {
     "net7.0": {
-      "AutoMapper/12.0.2-preview.0.2": {
+      "AgileObjects.AgileMapper/1.8.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CSharp": "4.7.0"
+          "AgileObjects.ReadableExpressions": "2.6.0"
         },
         "compile": {
-          "lib/net6.0/AutoMapper.dll": {
+          "lib/netstandard2.0/AgileObjects.AgileMapper.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/AutoMapper.dll": {
+          "lib/netstandard2.0/AgileObjects.AgileMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "AgileObjects.NetStandardPolyfills/1.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/AgileObjects.NetStandardPolyfills.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/AgileObjects.NetStandardPolyfills.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "AgileObjects.ReadableExpressions/2.6.0": {
+        "type": "package",
+        "dependencies": {
+          "AgileObjects.NetStandardPolyfills": "1.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AgileObjects.ReadableExpressions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/AgileObjects.ReadableExpressions.dll": {
             "related": ".xml"
           }
         }
@@ -44,19 +73,6 @@
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.SecurityToken.dll": {
             "related": ".pdb;.xml"
-          }
-        }
-      },
-      "BCrypt.Net/0.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/net35/BCrypt.Net.dll": {
-            "related": ".XML"
-          }
-        },
-        "runtime": {
-          "lib/net35/BCrypt.Net.dll": {
-            "related": ".XML"
           }
         }
       },
@@ -1577,18 +1593,66 @@
     }
   },
   "libraries": {
-    "AutoMapper/12.0.2-preview.0.2": {
-      "sha512": "EwfhkDDQo742Drbpan83jkZssDVeIk5OR8WRuKzrVIwKMqkYod9Qi95L7Lfd2sP1zCQe1QRQ0Q7ddBkmDdWCPg==",
+    "AgileObjects.AgileMapper/1.8.1": {
+      "sha512": "i+t7VYvaC+mbBm8Z2psoLE4BJJ+NcWhJoFsmKdVJ2vAM53TUyIw1J7fgHADpiA3++xFyOx/IaXT/DZ4i0zzBZQ==",
       "type": "package",
-      "path": "automapper/12.0.2-preview.0.2",
+      "path": "agileobjects.agilemapper/1.8.1",
       "files": [
         ".nupkg.metadata",
-        "README.md",
-        "automapper.12.0.2-preview.0.2.nupkg.sha512",
-        "automapper.nuspec",
-        "icon.png",
-        "lib/net6.0/AutoMapper.dll",
-        "lib/net6.0/AutoMapper.xml"
+        ".signature.p7s",
+        "Icon.png",
+        "agileobjects.agilemapper.1.8.1.nupkg.sha512",
+        "agileobjects.agilemapper.nuspec",
+        "lib/net35/AgileObjects.AgileMapper.dll",
+        "lib/net35/AgileObjects.AgileMapper.xml",
+        "lib/net40/AgileObjects.AgileMapper.dll",
+        "lib/net40/AgileObjects.AgileMapper.xml",
+        "lib/netstandard1.0/AgileObjects.AgileMapper.dll",
+        "lib/netstandard1.0/AgileObjects.AgileMapper.xml",
+        "lib/netstandard1.3/AgileObjects.AgileMapper.dll",
+        "lib/netstandard1.3/AgileObjects.AgileMapper.xml",
+        "lib/netstandard2.0/AgileObjects.AgileMapper.dll",
+        "lib/netstandard2.0/AgileObjects.AgileMapper.xml"
+      ]
+    },
+    "AgileObjects.NetStandardPolyfills/1.5.0": {
+      "sha512": "+eWxs3HINdHPZpXALiPIHilHnsuKCj1nxoyZlgZSxgv5OVQPwt7IWRYtOx+4/6x0qO8cjXQuLalrxouT42EZzQ==",
+      "type": "package",
+      "path": "agileobjects.netstandardpolyfills/1.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "agileobjects.netstandardpolyfills.1.5.0.nupkg.sha512",
+        "agileobjects.netstandardpolyfills.nuspec",
+        "lib/net35/AgileObjects.NetStandardPolyfills.dll",
+        "lib/net35/AgileObjects.NetStandardPolyfills.xml",
+        "lib/net40/AgileObjects.NetStandardPolyfills.dll",
+        "lib/net40/AgileObjects.NetStandardPolyfills.xml",
+        "lib/netstandard1.0/AgileObjects.NetStandardPolyfills.dll",
+        "lib/netstandard1.0/AgileObjects.NetStandardPolyfills.xml",
+        "lib/netstandard2.0/AgileObjects.NetStandardPolyfills.dll",
+        "lib/netstandard2.0/AgileObjects.NetStandardPolyfills.xml"
+      ]
+    },
+    "AgileObjects.ReadableExpressions/2.6.0": {
+      "sha512": "GfyVg7MRALnM182yHN86yMDd20rOAwUmjkcrJoPnIlPtSwunUSOiXJ7ZotyhtWTNno4HUfa6q85ZSwwOgfDdYg==",
+      "type": "package",
+      "path": "agileobjects.readableexpressions/2.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "agileobjects.readableexpressions.2.6.0.nupkg.sha512",
+        "agileobjects.readableexpressions.nuspec",
+        "lib/net35/AgileObjects.ReadableExpressions.dll",
+        "lib/net35/AgileObjects.ReadableExpressions.xml",
+        "lib/net40/AgileObjects.ReadableExpressions.dll",
+        "lib/net40/AgileObjects.ReadableExpressions.xml",
+        "lib/netstandard1.0/AgileObjects.ReadableExpressions.dll",
+        "lib/netstandard1.0/AgileObjects.ReadableExpressions.xml",
+        "lib/netstandard2.0/AgileObjects.ReadableExpressions.dll",
+        "lib/netstandard2.0/AgileObjects.ReadableExpressions.xml"
       ]
     },
     "AWSSDK.Core/3.7.100.14": {
@@ -1641,19 +1705,6 @@
         "lib/netstandard2.0/AWSSDK.SecurityToken.xml",
         "tools/install.ps1",
         "tools/uninstall.ps1"
-      ]
-    },
-    "BCrypt.Net/0.1.0": {
-      "sha512": "sST2w361Dxt9GGMfpOTiK50wXGV64Ybb1hiX3xjEWnhVYZNF43NuySGwADJa7X1R+bA53NsFR+tuDxcYiJeIOA==",
-      "type": "package",
-      "path": "bcrypt.net/0.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "bcrypt.net.0.1.0.nupkg.sha512",
-        "bcrypt.net.nuspec",
-        "lib/net35/BCrypt.Net.XML",
-        "lib/net35/BCrypt.Net.dll"
       ]
     },
     "DnsClient/1.6.1": {
@@ -5478,8 +5529,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "AutoMapper >= 12.0.2-preview.0.2",
-      "BCrypt.Net >= 0.1.0",
+      "AgileObjects.AgileMapper >= 1.8.1",
       "FastEndpoints >= 5.7.2",
       "FastEndpoints.Security >= 5.7.2",
       "FastEndpoints.Swagger >= 5.7.2",
@@ -5487,25 +5537,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mr_g8\\.nuget\\packages\\": {}
+    "/Users/goran/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mr_g8\\RealworldBackendFastendpoints\\RealworldBackendFastendpoints.csproj",
+      "projectUniqueName": "/Users/goran/RealworldBackendFastendpoints/RealworldBackendFastendpoints.csproj",
       "projectName": "RealworldBackendFastendpoints",
-      "projectPath": "C:\\Users\\mr_g8\\RealworldBackendFastendpoints\\RealworldBackendFastendpoints.csproj",
-      "packagesPath": "C:\\Users\\mr_g8\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mr_g8\\RealworldBackendFastendpoints\\obj\\",
+      "projectPath": "/Users/goran/RealworldBackendFastendpoints/RealworldBackendFastendpoints.csproj",
+      "packagesPath": "/Users/goran/.nuget/packages/",
+      "outputPath": "/Users/goran/RealworldBackendFastendpoints/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mr_g8\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/goran/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "https://www.myget.org/F/automapperdev/api/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
@@ -5523,13 +5573,9 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
-          "AutoMapper": {
+          "AgileObjects.AgileMapper": {
             "target": "Package",
-            "version": "[12.0.2-preview.0.2, )"
-          },
-          "BCrypt.Net": {
-            "target": "Package",
-            "version": "[0.1.0, )"
+            "version": "[1.8.1, )"
           },
           "FastEndpoints": {
             "target": "Package",
@@ -5567,20 +5613,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Das Paket \"BCrypt.Net 0.1.0\" wurde nicht mit dem Projektzielframework \"net7.0\", sondern mit \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
-      "libraryId": "BCrypt.Net",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  }
 }

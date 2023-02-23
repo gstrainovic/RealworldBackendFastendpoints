@@ -3,6 +3,7 @@ global using FastEndpoints.Security;
 global using FluentValidation;
 global using MongoDB.Entities;
 using System.Text.Json;
+using AgileObjects.AgileMapper;
 using FastEndpoints.Swagger;
 
 var builder = WebApplication.CreateBuilder();
@@ -26,5 +27,9 @@ app.UseAuthorization();
 app.UseSwaggerGen();
 
 await DB.InitAsync(database: "conduit", host: "localhost");
+
+//ignore all nulls when mapping
+Mapper.WhenMapping
+    .IgnoreSources(c => c.If(s => s == null))
 
 app.Run();
