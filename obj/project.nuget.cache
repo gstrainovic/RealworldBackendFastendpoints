@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "snODmgsX25RU+YxFo8Pu0Rlb97S19jwBI4twDx3PidrYvbpG+c7IbBQMLj477Y6Tw7S1ckcKn9Ohui4lyXLp8g==",
+  "dgSpecHash": "0DYirWdZd2u+hYughNksDFfrENFWAOViXnLdtW+7EG4is6Fp4GDhQ9bvkOX+IIh9liT5FrlRj6f77VnEW9mczQ==",
   "success": true,
   "projectFilePath": "/Users/goran/RealworldBackendFastendpoints/RealworldBackendFastendpoints.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "/Users/goran/.nuget/packages/agileobjects.readableexpressions/2.6.0/agileobjects.readableexpressions.2.6.0.nupkg.sha512",
     "/Users/goran/.nuget/packages/awssdk.core/3.7.100.14/awssdk.core.3.7.100.14.nupkg.sha512",
     "/Users/goran/.nuget/packages/awssdk.securitytoken/3.7.100.14/awssdk.securitytoken.3.7.100.14.nupkg.sha512",
+    "/Users/goran/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/goran/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
     "/Users/goran/.nuget/packages/fastendpoints/5.7.2/fastendpoints.5.7.2.nupkg.sha512",
     "/Users/goran/.nuget/packages/fastendpoints.attributes/5.7.2/fastendpoints.attributes.5.7.2.nupkg.sha512",

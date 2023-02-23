@@ -18,8 +18,7 @@ public class LoginEndpoint : Endpoint<LoginRequest, UserResponse>
     if (user is null)
       ThrowError("No user account by that username!");
 
-    var hashing = new HashingManager();
-    if (!hashing.Verify(r.User.Password, user.PasswordHash))
+    if (!BCrypt.Net.BCrypt.Verify(r.User.Password, user.PasswordHash))
       ThrowError("Password is incorrect!");
 
     await SendAsync(new UserResponse

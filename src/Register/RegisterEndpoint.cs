@@ -10,8 +10,6 @@ public class RegisterEndpoint : Endpoint<RegisterRequest, UserResponse>
   public override async Task HandleAsync(RegisterRequest req, CancellationToken ct)
   {
 
-    var hasing = new HashingManager();
-
     var emailIsTaken = await RegisterData.EmailAddressIsTaken(req.User.Email.ToLower());
     if (emailIsTaken)
       AddError(r => req.User.Email, "Email address is already in use");
@@ -26,9 +24,7 @@ public class RegisterEndpoint : Endpoint<RegisterRequest, UserResponse>
     {
       Email = req.User.Email.ToLower(),
       Username = req.User.Username.ToLower(),
-      // PasswordHash = BCrypt.Net.BCrypt.HashPassword(req.User.Password)
-      // with NSec.Cryptography
-      PasswordHash = hasing.HashToString(req.User.Password)
+      PasswordHash = BCrypt.Net.BCrypt.HashPassword(req.User.Password)
   };
 
     await user.SaveAsync();

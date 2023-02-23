@@ -41,8 +41,3 @@ public class Validator : Validator<UpdateUserRequest>
 
   }
 }
-
-public class UpdateUserResponse
-{
-  public string Message => "This endpoint hasn't been implemented yet!";
-}

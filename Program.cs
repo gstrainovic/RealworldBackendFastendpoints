@@ -28,8 +28,4 @@ app.UseSwaggerGen();
 
 await DB.InitAsync(database: "conduit", host: "localhost");
 
-//ignore all nulls when mapping
-Mapper.WhenMapping
-    .IgnoreSources(c => c.If(s => s == null))
-
 app.Run();
