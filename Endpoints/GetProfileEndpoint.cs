@@ -19,7 +19,7 @@ public class GetProfileEndpoint : EndpointWithoutRequest<ProfileResponse>
         Ent.User UserFromRequest = await UserData.GetUserByUserName(UserNameRequest);
         // print the user to the console
         Console.WriteLine("user from request: " + JsonSerializer.Serialize(UserFromRequest));
-        string CurrentUserEmail = User.FindFirstValue(Claim.UserEmail);
+        string CurrentUserEmail = User.FindFirstValue(ClaimName.UserEmail);
         // print the current user email to the console
         Console.WriteLine("current user email: " + CurrentUserEmail);
         Ent.User CurrentUser = await UserData.GetUserByEmail(CurrentUserEmail);

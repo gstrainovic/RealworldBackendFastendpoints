@@ -1,4 +1,9 @@
-﻿public static class JWT
+﻿public static class ClaimName
+{
+  public const string UserEmail = "UserEmail";
+}
+
+public static class JWT
 {
     public static string CreateToken(string Email)
     {
@@ -14,8 +19,8 @@
     return JWTBearer.CreateToken(
           signingKey: jwtSigningKey,
           expireAt: DateTime.UtcNow.AddDays(1),
-          claims: (Claim.UserEmail, Email)
+          claims: (ClaimName.UserEmail, Email)
         );
-          
   }
 }
+

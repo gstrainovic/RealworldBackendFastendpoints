@@ -1,3 +1,4 @@
+
 using System.Security.Claims;
 
 public class GetCurrentUserEndPoint: EndpointWithoutRequest<UserResponse>
@@ -10,7 +11,7 @@ public class GetCurrentUserEndPoint: EndpointWithoutRequest<UserResponse>
 
 public override async Task HandleAsync(CancellationToken ct)
 {
-  var UserEmail = User.FindFirstValue(Claim.UserEmail);
+  var UserEmail = User.FindFirstValue(ClaimName.UserEmail);
   var user = await UserData.GetUserByEmail(UserEmail);
 
   await SendAsync(new UserResponse
