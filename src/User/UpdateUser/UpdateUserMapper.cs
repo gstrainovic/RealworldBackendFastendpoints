@@ -11,14 +11,14 @@ public class UpdateUserMapper : Mapper<UpdateUserRequest, UserResponse, Ent.User
     PasswordHash = BCrypt.Net.BCrypt.HashPassword(r.User.Password)
   };
 
-  public override UserResponse FromEntity(Ent.User e) => new()
-  {
-    User = new UserResponse.user
-    {
-      Email = e.Email,
-      Username = e.Username,
-      Bio = e.Bio,
-      Image = e.Image
-    }
-  };
+  // public override UserResponse FromEntity(Ent.User e) => new()
+  // {
+  //   User = new UserResponse.user
+  //   {
+  //     Email = e.Email,
+  //     Username = e.Username,
+  //     Bio = e.Bio,
+  //     Image = e.Image
+  //   }
+  // };
 }

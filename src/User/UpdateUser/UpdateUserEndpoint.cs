@@ -15,7 +15,13 @@ public class UpdateUserEndpoint : Endpoint<UpdateUserRequest, UserResponse, Upda
 
   public override async Task HandleAsync(UpdateUserRequest req, CancellationToken ct)
   {
-
-
+    Ent.User user = Map.ToEntity(req);
+    Ent.User updated_user = await UserData.UpdateUser(user);
+    UserResponse.user response = updated_user.Map().ToANew<UserResponse.user>();
+    response.Token = JWT.CreateToken(response.Email);
+    await SendAsync( new()
+    {
+      User = response
+    });
   }
 }
