@@ -12,5 +12,8 @@ public class User : Entity
 
   public string? PasswordHash { get; set; }
 
+  // which email adress i'm following
+  public List<string>? Following { get; set; }
+
 }
 

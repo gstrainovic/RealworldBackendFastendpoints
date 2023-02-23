@@ -13,7 +13,7 @@ public class LoginEndpoint : Endpoint<LoginRequest, UserResponse>
   public override async Task HandleAsync(LoginRequest r, CancellationToken c)
   {
     
-    var user = await UserData.GetUser(r.User.Email);
+    var user = await UserData.GetUserByEmail(r.User.Email);
 
     if (user is null)
       ThrowError("No user account by that username!");

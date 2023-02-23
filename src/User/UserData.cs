@@ -1,10 +1,17 @@
 
 public class UserData
 {
-  public static async Task<Ent.User> GetUser(string email)
+  public static async Task<Ent.User> GetUserByEmail(string email)
   {
     return await DB.Find<Ent.User>()
         .Match(a => a.Email.ToLower() == email.ToLower())
+        .ExecuteSingleAsync();
+  }
+
+  public static async Task<Ent.User> GetUserByUserName(string username)
+  {
+    return await DB.Find<Ent.User>()
+        .Match(a => a.Username.ToLower() == username.ToLower())
         .ExecuteSingleAsync();
   }
 

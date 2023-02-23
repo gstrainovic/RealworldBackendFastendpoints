@@ -11,7 +11,7 @@ public class GetCurrentUserEndPoint: EndpointWithoutRequest<UserResponse>
 public override async Task HandleAsync(CancellationToken ct)
 {
   var UserEmail = User.FindFirstValue(Claim.UserEmail);
-  var user = await UserData.GetUser(UserEmail);
+  var user = await UserData.GetUserByEmail(UserEmail);
 
   await SendAsync(new UserResponse
   {
