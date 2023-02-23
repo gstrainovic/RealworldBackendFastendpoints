@@ -8,12 +8,12 @@ public class User : Entity
 
   public string? Bio { get; set; }
 
-  public string? Image { get; set; }
+  public string? Image { get; set; } 
 
   public string? PasswordHash { get; set; }
 
   // which email adress i'm following
-  public List<string>? Following { get; set; }
+  public List<string> Following { get; set; } = new();
 
 }
 
