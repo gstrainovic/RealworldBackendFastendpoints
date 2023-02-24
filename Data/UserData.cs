@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using System.Text.Json;
 using AgileObjects.AgileMapper.Extensions;
 
 public enum FollowHandler
@@ -36,12 +37,21 @@ public class UserData
 
   public static async Task<ProfileResponse> Follow(string UserNameRequest, string CurrentUserEmail, FollowHandler follow)
   {
+
+    Console.WriteLine("UserNameRequest: " + UserNameRequest);
+    Console.WriteLine("CurrentUserEmail: " + CurrentUserEmail);
+    Console.WriteLine("follow: " + follow);
+
     Ent.User UserFromRequest = await GetUserByUserName(UserNameRequest);
+    Console.WriteLine("UserFromRequest: " + JsonSerializer.Serialize(UserFromRequest));
+
     ProfileResponse.profile Response = UserFromRequest.Map().ToANew<ProfileResponse.profile>();
+    Console.WriteLine("Response: " + JsonSerializer.Serialize(Response));
 
     if (CurrentUserEmail != null)
     {
           Ent.User currentUser = await GetUserByEmail(CurrentUserEmail);
+          Console.WriteLine("currentUser: " + JsonSerializer.Serialize(currentUser));
           if (follow == FollowHandler.add)
           {
             currentUser.Following.Add(UserFromRequest.Email);
