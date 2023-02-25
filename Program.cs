@@ -8,7 +8,7 @@ using FastEndpoints.Swagger;
 
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddFastEndpoints();
-builder.Services.AddJWTBearerAuth(builder.Configuration["JwtSigningKey"]);
+builder.Services.AddJWTBearerAuth(JWT.jwtSigningKey);
 
 builder.Services.AddSwaggerDoc();
 
@@ -18,7 +18,7 @@ app.UseFastEndpoints(c =>
 {
   c.Endpoints.Configurator = ep =>
   {
-    ep.PreProcessors(FastEndpoints.Order.Before, new EmptyRequest());
+    ep.PreProcessors(FastEndpoints.Order.Before, new ErrorHandler.EmptyRequest());
   };
 });
 app.MyExceptionHandler(); 

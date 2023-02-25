@@ -1,4 +1,6 @@
-public class RegisterEndpoint : Endpoint<RegisterRequest, UserResponse>
+namespace Endpoint.User;
+
+public class Register : Endpoint<Models.Request.User.Register, Models.Response.UserResponse>
 {
   public override void Configure()
   {
@@ -7,14 +9,14 @@ public class RegisterEndpoint : Endpoint<RegisterRequest, UserResponse>
     DontThrowIfValidationFails();
   }
 
-  public override async Task HandleAsync(RegisterRequest req, CancellationToken ct)
+  public override async Task HandleAsync(Models.Request.User.Register req, CancellationToken ct)
   {
 
-    var emailIsTaken = await RegisterData.EmailAddressIsTaken(req.User.Email.ToLower());
+    var emailIsTaken = await Data.User.EmailAddressIsTaken(req.User.Email.ToLower());
     if (emailIsTaken)
       AddError(r => req.User.Email, "Email address is already in use");
 
-    var userNameIsTaken = await RegisterData.UsernameIsTaken(req.User.Username.ToLower());
+    var userNameIsTaken = await Data.User.UsernameIsTaken(req.User.Username.ToLower());
     if (userNameIsTaken)
       AddError(r => req.User.Username, "Username is not available");
 
@@ -25,13 +27,13 @@ public class RegisterEndpoint : Endpoint<RegisterRequest, UserResponse>
       Email = req.User.Email.ToLower(),
       Username = req.User.Username.ToLower(),
       PasswordHash = BCrypt.Net.BCrypt.HashPassword(req.User.Password)
-  };
+    };
 
     await user.SaveAsync();
 
-    await SendAsync(new UserResponse
+    await SendAsync(new Models.Response.UserResponse
     {
-      User = new UserResponse.user
+      User = new Models.Response.UserResponse.user
       {
         Email = user.Email,
         Token = JWT.CreateToken(user.Email),

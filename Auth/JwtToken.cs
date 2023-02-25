@@ -5,7 +5,17 @@
 
 public static class JWT
 {
-    public static string CreateToken(string Email)
+    // random jst signing key
+    public static string jwtSigningKey = RandomString(32);
+
+  private static string RandomString(int v)
+  {
+    const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    return new string(Enumerable.Repeat(chars, v)
+      .Select(s => s[new Random().Next(s.Length)]).ToArray());
+  }
+
+  public static string CreateToken(string Email)
     {
     // load Configuration
     var config = new ConfigurationBuilder()
@@ -14,7 +24,7 @@ public static class JWT
         .Build();
 
     // load JWT Signing Key
-    var jwtSigningKey = config["JwtSigningKey"];
+
 
     return JWTBearer.CreateToken(
           signingKey: jwtSigningKey,

@@ -1,7 +1,5 @@
-﻿using System.Text.Json;
-using FluentValidation.Results;
-
-public class LoginEndpoint : Endpoint<LoginRequest, UserResponse>
+﻿namespace Endpoint.User;
+public class Login : Endpoint<Models.Request.User.Login, Models.Response.UserResponse>
 {
   public override void Configure()
   {
@@ -10,10 +8,10 @@ public class LoginEndpoint : Endpoint<LoginRequest, UserResponse>
     DontThrowIfValidationFails();
   }
 
-  public override async Task HandleAsync(LoginRequest r, CancellationToken c)
+  public override async Task HandleAsync(Models.Request.User.Login r, CancellationToken c)
   {
-    
-    var user = await UserData.GetUserByEmail(r.User.Email);
+
+    var user = await Data.User.GetByEmail(r.User.Email);
 
     if (user is null)
       ThrowError("No user account by that username!");
@@ -21,9 +19,9 @@ public class LoginEndpoint : Endpoint<LoginRequest, UserResponse>
     if (!BCrypt.Net.BCrypt.Verify(r.User.Password, user.PasswordHash))
       ThrowError("Password is incorrect!");
 
-    await SendAsync(new UserResponse
+    await SendAsync(new Models.Response.UserResponse
     {
-      User = new UserResponse.user
+      User = new Models.Response.UserResponse.user
       {
         Email = user.Email,
         Token = JWT.CreateToken(user.Email),
