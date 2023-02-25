@@ -1,10 +1,10 @@
-namespace Endpoint.User;
+namespace Endpoint.Article;
 
-public class Register : Endpoint<Models.Request.User.Register, Models.Response.UserResponse>
+public class Create : Endpoint<Models.Request.User.Register, Models.Response.UserResponse>
 {
   public override void Configure()
   {
-    Post("api/users");
+    Post("api/articles");
     AllowAnonymous();
     DontThrowIfValidationFails();
   }
