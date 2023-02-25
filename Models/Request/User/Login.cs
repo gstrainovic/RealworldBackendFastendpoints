@@ -2,14 +2,11 @@ namespace Models.Request.User;
 public class Login
 {
   public user? User { get; set; }
-  public class user
+  public class user : Model.Abstract.User.Base
   {
-    // required
-    public string? Email { get; set; }
-
-    // required
     public string? Password { get; set; }
   }
+  
   public class Validator : Validator<Login>
   {
     public Validator()

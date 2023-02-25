@@ -13,7 +13,7 @@ public class User : Entity
   public string? PasswordHash { get; set; }
 
   // which email adress i'm following
-  public HashSet<string> Following { get; set; } = new(); 
+  // public HashSet<string> Following { get; set; } = new(); 
   
   // Following without duplicates
 

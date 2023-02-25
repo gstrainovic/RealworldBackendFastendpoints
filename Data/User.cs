@@ -71,15 +71,15 @@ public class User
       Console.WriteLine("currentUser: " + JsonSerializer.Serialize(currentUser));
       if (follow == EnumFollow.add)
       {
-        currentUser.Following.Add(UserFromRequest.Email);
+        // currentUser.Following.Add(UserFromRequest.Email);
         await currentUser.SaveAsync();
       }
       else if (follow == EnumFollow.remove)
       {
-        currentUser.Following.Remove(UserFromRequest.Email);
+        // currentUser.Following.Remove(UserFromRequest.Email);
         await currentUser.SaveAsync();
       }
-      Response.following = currentUser.Following.Contains(UserFromRequest.Email);
+      // Response.following = currentUser.Following.Contains(UserFromRequest.Email);
     }
 
     return new()

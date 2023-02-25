@@ -1,13 +1,14 @@
 namespace Models.Request.User;
 
-// register request with all fields from Ent.User
-public class Register
+public class RegisterOrUpdate
 {
   public user? User { get; set; }
-  
-  
+  public class user : Model.Abstract.User.Base
+  {
+    public string? Password { get; set; }
+  }
 
-  public class Validator : Validator<Register>
+  public class Validator : Validator<RegisterOrUpdate>
   {
     public Validator()
     {
