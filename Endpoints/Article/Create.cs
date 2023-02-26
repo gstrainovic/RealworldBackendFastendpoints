@@ -1,45 +1,41 @@
+using System.Security.Claims;
+using AgileObjects.AgileMapper.Extensions;
+
 namespace Endpoint.Article;
 
-public class Create : Endpoint<Models.Request.User.RegisterOrUpdate, Models.Response.UserResponse>
+public class Create : Endpoint<Models.RequestResponse.ArticleRequestResponse,  Models.RequestResponse.ArticleRequestResponse>
 {
   public override void Configure()
   {
     Post("api/articles");
-    AllowAnonymous();
     DontThrowIfValidationFails();
   }
 
-  public override async Task HandleAsync(Models.Request.User.RegisterOrUpdate req, CancellationToken ct)
+  public override async Task HandleAsync(Models.RequestResponse.ArticleRequestResponse req, CancellationToken ct)
   {
+    string UserEmail = User.FindFirstValue(ClaimName.UserEmail);
+    Ent.User user = await Data.User.GetByEmail(UserEmail);
+    Ent.Article article = req.Article.Map().ToANew<Ent.Article>();
 
-    var emailIsTaken = await Data.User.EmailAddressIsTaken(req.User.Email.ToLower());
-    if (emailIsTaken)
-      AddError(r => req.User.Email, "Email address is already in use");
+    if (article.Author == null) {
+      article.Author = user;
+    }
 
-    var userNameIsTaken = await Data.User.UsernameIsTaken(req.User.Username.ToLower());
-    if (userNameIsTaken)
-      AddError(r => req.User.Username, "Username is not available");
+    if (article.Slug == null) {
+      article.Slug = await Data.Article.CreateSlug(article.Title);
+    }
 
-    ThrowIfAnyErrors();
+    await article.SaveAsync();
+    article.Author = user ?? req.Article.Author;
 
-    var user = new Ent.User
+    await SendAsync(new Models.RequestResponse.ArticleRequestResponse
     {
-      Email = req.User.Email.ToLower(),
-      Username = req.User.Username.ToLower(),
-      PasswordHash = BCrypt.Net.BCrypt.HashPassword(req.User.Password)
-    };
-
-    await user.SaveAsync();
-
-    await SendAsync(new Models.Response.UserResponse
-    {
-      User = new Models.Response.UserResponse.user
-      {
-        Email = user.Email,
-        Token = JWT.CreateToken(user.Email),
-        Username = user.Username
-      }
+      Article = article.Map().ToANew<Models.RequestResponse.ArticleRequestResponse.article>()
     });
+
+
+
+
 
   }
 }

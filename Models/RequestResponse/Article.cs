@@ -1,4 +1,4 @@
-namespace Models.Request.Article;
+namespace Models.RequestResponse;
 
 // {
 //   "article": {
@@ -9,17 +9,13 @@ namespace Models.Request.Article;
 //   }
 // }
 
-public class Create
+public class ArticleRequestResponse
 {
   public article? Article { get; set; }
-  public class article
+  public class article : Models.Abstract.Article
   {
-    public string? Title { get; set; }
-    public string? Description { get; set; }
-    public string? Body { get; set; }
-    public HashSet<string>? TagList { get; set; }
   }
-  public class Validator : Validator<Create>
+  public class Validator : Validator<ArticleRequestResponse>
   {
     public Validator()
     {

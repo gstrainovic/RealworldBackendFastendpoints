@@ -11,7 +11,7 @@ public class ProfileResponse
   // }
   // }
   public profile? Profile { get; set; }
-  public class profile : Model.Abstract.User
+  public class profile : Models.Abstract.User
   {
     public bool Following { get; set; }
   }

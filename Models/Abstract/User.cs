@@ -1,4 +1,4 @@
-namespace Model.Abstract;
+namespace Models.Abstract;
 
 public abstract class User
 {
