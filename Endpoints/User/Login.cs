@@ -19,6 +19,9 @@ public class Login : Endpoint<Models.Request.User.Login, Models.Response.UserRes
     if (!BCrypt.Net.BCrypt.Verify(r?.User.Password, user.PasswordHash))
       ThrowError("Password is incorrect!");
 
+    // remove property id from response
+
+
     await SendAsync(new Models.Response.UserResponse
     {
       User = new Models.Response.UserResponse.user

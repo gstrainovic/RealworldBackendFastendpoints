@@ -62,6 +62,14 @@ public class User
     Ent.User UserFromRequest = await GetByUserName(UserNameRequest);
     Console.WriteLine("UserFromRequest: " + JsonSerializer.Serialize(UserFromRequest));
 
+    if (UserFromRequest == null)
+    {
+      return new()
+      {
+        Profile = null
+      };
+    }
+
     Models.Response.ProfileResponse.profile Response = UserFromRequest.Map().ToANew<Models.Response.ProfileResponse.profile>();
     Console.WriteLine("Response: " + JsonSerializer.Serialize(Response));
 
@@ -71,23 +79,25 @@ public class User
       Console.WriteLine("currentUser: " + JsonSerializer.Serialize(currentUser));
       if (follow == EnumFollow.add)
       {
-        // currentUser.Following.Add(UserFromRequest.Email);
+        currentUser.Following.Add(UserFromRequest.Email);
         await currentUser.SaveAsync();
       }
       else if (follow == EnumFollow.remove)
       {
-        // currentUser.Following.Remove(UserFromRequest.Email);
+        currentUser.Following.Remove(UserFromRequest.Email);
         await currentUser.SaveAsync();
       }
-      // Response.following = currentUser.Following.Contains(UserFromRequest.Email);
+      Response.Following = currentUser.Following.Contains(UserFromRequest.Email);
     }
+
+
+    
 
     return new()
     {
       Profile = Response
     };
   }
-
 }
 
 // enum follow

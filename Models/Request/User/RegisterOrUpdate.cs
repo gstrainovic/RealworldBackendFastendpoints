@@ -3,7 +3,7 @@ namespace Models.Request.User;
 public class RegisterOrUpdate
 {
   public user? User { get; set; }
-  public class user : Model.Abstract.User.Base
+  public class user : Model.Abstract.User
   {
     public string? Password { get; set; }
   }
