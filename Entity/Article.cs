@@ -1,6 +1,6 @@
 namespace Ent;
 
-public class Article : Entity 
+public class Article : Entity , ICreatedOn, IModifiedOn
 {
   public string? Title { get; set; }
   public string? Slug { get; set; }
