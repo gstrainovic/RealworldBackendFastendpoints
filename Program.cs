@@ -16,12 +16,13 @@ var app = builder.Build();
 // app.UseFastEndpoints();
 app.UseFastEndpoints(c =>
 {
-  c.Endpoints.Configurator = ep =>
-  {
-    ep.PreProcessors(FastEndpoints.Order.Before, new ErrorHandler.EmptyRequest());
-  };
+  // c.Endpoints.Configurator = ep =>
+  // {
+  //   ep.PreProcessors(FastEndpoints.Order.Before, new ErrorHandler.EmptyRequest());
+  // };
 });
-app.MyExceptionHandler(); 
+// app.MyExceptionHandler(); 
+app.UseDefaultExceptionHandler();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseSwaggerGen();
